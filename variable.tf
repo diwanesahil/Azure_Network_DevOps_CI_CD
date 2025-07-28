@@ -10,7 +10,7 @@ variable "resource_group_location" {
     
 }
 
-/*variable "hub_vnet_name" {
+variable "hub_vnet_name" {
   description = "The name of the Hub Virtual Network."
   type        = string
     
@@ -103,4 +103,4 @@ variable "azure_firewall_public_ip_name" {
   description = "The name of the Public IP for the Azure Firewall."
   type        = string
   
-}*/
+}
