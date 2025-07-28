@@ -1,5 +1,5 @@
 #create application gateway subnet
-/*resource "azurerm_subnet" "AppGateway_Subnet" {
+resource "azurerm_subnet" "AppGateway_Subnet" {
   name                 = var.AppGateway_Subnet_Name
   resource_group_name  = azurerm_resource_group.Network_RG.name
   virtual_network_name = azurerm_virtual_network.Hub_Vnet.name
@@ -36,4 +36,4 @@ resource "azurerm_subnet" "SharedServices_Subnet" {
   resource_group_name  = azurerm_resource_group.Network_RG.name
   virtual_network_name = azurerm_virtual_network.Hub_Vnet.name
   address_prefixes     = ["10.0.4.0/24"]
-}*/
+}
