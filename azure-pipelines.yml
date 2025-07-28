@@ -1,0 +1,84 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+#Link variable group
+
+variables:
+- group: TerraformBackendConfig
+#- group: Input_Variables
+#- group: keyvaultsecrets
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    
+    - task: TerraformInstaller@1
+      displayName: TF install
+      inputs:
+        terraformVersion: 'latest'
+
+    #- task: replacetokens@6
+     # inputs:
+      #  root: '$(System.DefaultWorkingDirectory)/'
+       # sources: 'variable.tfvars'
+        #encoding: 'auto'
+        #writeBOM: true
+        #actionOnMissing: 'warn'
+        #keepToken: false
+        #tokenPrefix: '#{'
+        #tokenSuffix: '}#'
+        
+    #- script: cat $(System.DefaultWorkingDirectory)/variable.tfvars
+    #  displayName: Replaced token details
+               
+
+    - task: TerraformTask@5
+      displayName: TF Init
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/'
+        backendServiceArm: '$(service_Connection)'
+        backendAzureRmResourceGroupName: '$(backendResourceGroup)'
+        backendAzureRmStorageAccountName: '$(backendStorageAccount)'
+        backendAzureRmContainerName: '$(backendContainer)'
+        backendAzureRmKey: '$(backendStateFile)'
+
+    - task: TerraformTask@5
+      displayName: TF Validate
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/'
+
+    - task: TerraformTask@5
+      displayName: TF Plan
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/'
+        commandOptions: '-var-file="variable.tfvars"'
+        environmentServiceNameAzureRM: '$(service_Connection)'
+
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(Build.SourcesDirectory)'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+        replaceExistingArchive: true
+        
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: '$(Build.BuildId)-build'
+        publishLocation: 'Container'
