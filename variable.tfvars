@@ -1,6 +1,6 @@
 resource_group_name = "Network_RG"
 resource_group_location = "east us"
-hub_vnet_name = "Prod_Hub_VNet"
+/*hub_vnet_name = "Prod_Hub_VNet"
 spoke_vnet_name = "Prod_Spoke_VNet"
 Hub_to_Spoke_peering_name = "Prod_Hub_to_Spoke_Peering"
 Spoke_to_Hub_peering_name = "Prod_Spoke_to_Hub_Peering"
@@ -15,4 +15,4 @@ VPN_Gateway_Subnet_Name = "GatewaySubnet"
 azure_firewall_name = "Prod_AzureFirewall"
 azure_firewall_public_ip_name = "AzureFirewallPublicIP"
 vpn_gateway_name = "prod_vpn_gateway"
-vpn_public_ip_name = "vpn_public_ip"
+vpn_public_ip_name = "vpn_public_ip"*/

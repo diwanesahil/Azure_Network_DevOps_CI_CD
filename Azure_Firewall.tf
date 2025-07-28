@@ -1,5 +1,5 @@
 # create Azure Firewall
-resource "azurerm_firewall" "Azure_Firewall" {
+/*resource "azurerm_firewall" "Azure_Firewall" {
     name                = var.azure_firewall_name
     location            = azurerm_resource_group.Network_RG.location
     resource_group_name = azurerm_resource_group.Network_RG.name
@@ -29,4 +29,4 @@ resource "azurerm_firewall_policy" "Azure_Firewall_Policy" {
     name                = "AzureFirewallPolicy"
     location            = azurerm_resource_group.Network_RG.location
     resource_group_name = azurerm_resource_group.Network_RG.name
-   }
+   }*/
