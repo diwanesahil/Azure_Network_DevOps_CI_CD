@@ -147,3 +147,13 @@ variable "linux_vm_admin_password" {
   sensitive   = true
   
 }
+variable "key_vault_name" {
+  description = "The name of the Azure Key Vault."
+  type        = string  
+  
+}
+variable "kv_resource_group_name" {
+  description = "The name of the resource group where the Key Vault is located."
+  type        = string
+  
+}
