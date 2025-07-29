@@ -20,7 +20,7 @@ resource "azurerm_virtual_network" "Hub_Vnet" {
     virtual_network_name      = azurerm_virtual_network.Hub_Vnet.name
     remote_virtual_network_id = azurerm_virtual_network.Spoke_Vnet.id
     allow_forwarded_traffic   = true
-    allow_gateway_transit     = true
+    #allow_gateway_transit     = true
     use_remote_gateways       = false
     allow_virtual_network_access = true
   }
@@ -32,6 +32,6 @@ resource "azurerm_virtual_network_peering" "Spoke_to_Hub" {
     remote_virtual_network_id = azurerm_virtual_network.Hub_Vnet.id
     allow_forwarded_traffic   = true
     allow_gateway_transit     = false
-    use_remote_gateways       = true
+    #use_remote_gateways       = true
     allow_virtual_network_access = true
 }
