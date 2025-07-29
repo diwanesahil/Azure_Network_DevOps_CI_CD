@@ -1,5 +1,5 @@
 # create network interface for Linux VM
-resource "azurerm_network_interface" "Linux_VM_NIC" {
+/*resource "azurerm_network_interface" "Linux_VM_NIC" {
   name                = var.linux_vm_nic_name
   location            = azurerm_resource_group.Network_RG.location
   resource_group_name = azurerm_resource_group.Network_RG.name
@@ -52,4 +52,4 @@ admin_ssh_key {
     sku       = "22_04-lts-gen2"
     version   = "latest"
   }
-}
+}*/
