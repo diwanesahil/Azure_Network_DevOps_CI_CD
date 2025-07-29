@@ -121,3 +121,29 @@ variable "database_subnet_nsg_name" {
   type        = string
   
 }
+variable "linux_vm_nic_name" {
+  description = "The name of the Network Interface for the Linux VM."
+  type        = string
+  
+}
+variable "linux_vm_public_ip_name" {
+  description = "The name of the Public IP for the Linux VM."
+  type        = string
+  
+}
+variable "linux_vm_name" {
+  description = "The name of the Linux VM."
+  type        = string
+  
+}
+variable "linux_vm_admin_username" {
+  description = "The admin username for the Linux VM."
+  type        = string
+  
+}
+variable "linux_vm_admin_password" {
+  description = "The admin password for the Linux VM."
+  type        = string
+  sensitive   = true
+  
+}

@@ -11,7 +11,7 @@ trigger:
 variables:
 - group: TerraformBackendConfig
 #- group: Input_Variables
-#- group: keyvaultsecrets
+- group: keyvaultsecrets
 
 stages:
 - stage: Build
@@ -26,19 +26,19 @@ stages:
       inputs:
         terraformVersion: 'latest'
 
-    #- task: replacetokens@6
-     # inputs:
-      #  root: '$(System.DefaultWorkingDirectory)/'
-       # sources: 'variable.tfvars'
-        #encoding: 'auto'
-        #writeBOM: true
-        #actionOnMissing: 'warn'
-        #keepToken: false
-        #tokenPrefix: '#{'
-        #tokenSuffix: '}#'
+    - task: replacetokens@6
+      inputs:
+        root: '$(System.DefaultWorkingDirectory)/'
+        sources: 'variable.tfvars'
+        encoding: 'auto'
+        writeBOM: true
+        actionOnMissing: 'warn'
+        keepToken: false
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'
         
-    #- script: cat $(System.DefaultWorkingDirectory)/variable.tfvars
-    #  displayName: Replaced token details
+    - script: cat $(System.DefaultWorkingDirectory)/variable.tfvars
+      displayName: Replaced token details
                
 
     - task: TerraformTask@5
