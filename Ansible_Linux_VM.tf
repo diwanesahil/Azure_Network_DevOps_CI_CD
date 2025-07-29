@@ -28,12 +28,17 @@ resource "azurerm_linux_virtual_machine" "Linux_VM" {
   location            = azurerm_resource_group.Network_RG.location
   size                = "Standard_D2s_v3"
   admin_username      = var.linux_vm_admin_username
-  admin_password      = var.linux_vm_admin_password
   disable_password_authentication = false
 
   network_interface_ids = [
     azurerm_network_interface.Linux_VM_NIC.id,
   ]
+
+admin_ssh_key {
+    username   = var.linux_vm_admin_username
+    public_key = var.linux_vm_admin_password  # Assuming this is a public SSH key, not a password
+}
+  
 
   os_disk {
     caching              = "ReadWrite"
