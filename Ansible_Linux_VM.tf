@@ -29,6 +29,7 @@ resource "azurerm_linux_virtual_machine" "Linux_VM" {
   size                = "Standard_D2s_v3"
   admin_username      = var.linux_vm_admin_username
   admin_password      = var.linux_vm_admin_password
+  disable_password_authentication = false
 
   network_interface_ids = [
     azurerm_network_interface.Linux_VM_NIC.id,
