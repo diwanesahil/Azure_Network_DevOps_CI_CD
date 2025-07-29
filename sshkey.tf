@@ -23,3 +23,4 @@ resource "azurerm_key_vault_secret" "ssh_private_key" {
   value        = tls_private_key.ssh_key.private_key_pem
   key_vault_id = data.azurerm_key_vault.existing_key_vault.id    
 
+}
