@@ -104,3 +104,20 @@ variable "azure_firewall_public_ip_name" {
   type        = string
   
 }
+
+variable "web_subnet_nsg_name" {
+  description = "The name of the Network Security Group for the Web Subnet."
+  type        = string
+  
+}
+
+variable "app_subnet_nsg_name" {
+  description = "The name of the Network Security Group for the App Subnet."
+  type        = string
+  
+}
+variable "database_subnet_nsg_name" {
+  description = "The name of the Network Security Group for the Database Subnet."
+  type        = string
+  
+}
