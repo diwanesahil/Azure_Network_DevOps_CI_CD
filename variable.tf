@@ -121,39 +121,15 @@ variable "database_subnet_nsg_name" {
   type        = string
   
 }
-variable "linux_vm_nic_name" {
-  description = "The name of the Network Interface for the Linux VM."
+variable "vm_admin_username" {
+  description = "The administrator username for the virtual machines."
   type        = string
   
 }
-variable "linux_vm_public_ip_name" {
-  description = "The name of the Public IP for the Linux VM."
-  type        = string
   
-}
-variable "linux_vm_name" {
-  description = "The name of the Linux VM."
-  type        = string
-  
-}
-variable "linux_vm_admin_username" {
-  description = "The admin username for the Linux VM."
-  type        = string
-  
-}
-variable "linux_vm_admin_password" {
-  description = "The admin password for the Linux VM."
+variable "vm_admin_password" {
+  description = "The administrator password for the virtual machines."
   type        = string
   sensitive   = true
-  
-}
-variable "key_vault_name" {
-  description = "The name of the Azure Key Vault."
-  type        = string  
-  
-}
-variable "kv_resource_group_name" {
-  description = "The name of the resource group where the Key Vault is located."
-  type        = string
   
 }
