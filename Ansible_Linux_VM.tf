@@ -41,7 +41,7 @@ resource "azurerm_linux_virtual_machine" "Linux_VM" {
 
 admin_ssh_key {
     username   = var.linux_vm_admin_username
-    public_key = data.azurerm_ssh_public_key.ssh_public_key.value # Assuming this is a public SSH key, not a password
+    public_key = data.azurerm_ssh_public_key.ssh_public_key.public_key # Assuming this is a public SSH key, not a password
 }
   
 
