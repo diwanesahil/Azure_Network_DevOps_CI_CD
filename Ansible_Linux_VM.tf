@@ -12,6 +12,12 @@ resource "azurerm_network_interface" "Linux_VM_NIC" {
   }
 }
 
+# get the existing public ssh key from the Azure portal
+data "azurerm_ssh_public_key" "ssh_public_key" {
+  name = "linuxvm_key"
+  resource_group_name = "linuxrg"
+}
+
 # create public IP for Linux VM
 resource "azurerm_public_ip" "Linux_VM_Public_IP" {
   name                = var.linux_vm_public_ip_name
@@ -35,7 +41,7 @@ resource "azurerm_linux_virtual_machine" "Linux_VM" {
 
 admin_ssh_key {
     username   = var.linux_vm_admin_username
-    public_key = azurerm_key_vault_secret.ssh_public_key.value  # Assuming this is a public SSH key, not a password
+    public_key = data.azurerm_ssh_public_key.ssh_public_key.value # Assuming this is a public SSH key, not a password
 }
   
 

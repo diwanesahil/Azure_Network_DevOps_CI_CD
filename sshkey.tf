@@ -11,11 +11,6 @@ data "azurerm_key_vault" "existing_key_vault" {
   
 }
 
-# stored the ssh private key locally
-resource "local_file" "ssh_private_key" {
-  content  = tls_private_key.ssh_key.private_key_pem
-  filename = "${path.module}/ssh_private_key.pem"
-}
 
 # store the ssh public key in the key vault
 resource "azurerm_key_vault_secret" "ssh_public_key" {
