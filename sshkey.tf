@@ -8,6 +8,13 @@ resource "tls_private_key" "ssh_key" {
 data "azurerm_key_vault" "existing_key_vault" {
   name                = var.key_vault_name
   resource_group_name = var.kv_resource_group_name
+  
+}
+
+# stored the ssh private key locally
+resource "local_file" "ssh_private_key" {
+  content  = tls_private_key.ssh_key.private_key_pem
+  filename = "${path.module}/ssh_private_key.pem"
 }
 
 # store the ssh public key in the key vault
