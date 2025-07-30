@@ -1,5 +1,5 @@
 # create network interface for Linux VM
-/*resource "azurerm_network_interface" "Linux_VM_NIC" {
+resource "azurerm_network_interface" "Linux_VM_NIC" {
   name                = var.linux_vm_nic_name
   location            = azurerm_resource_group.Network_RG.location
   resource_group_name = azurerm_resource_group.Network_RG.name
@@ -28,15 +28,14 @@ resource "azurerm_linux_virtual_machine" "Linux_VM" {
   location            = azurerm_resource_group.Network_RG.location
   size                = "Standard_D2s_v3"
   admin_username      = var.linux_vm_admin_username
-  disable_password_authentication = false
-
+  
   network_interface_ids = [
     azurerm_network_interface.Linux_VM_NIC.id,
   ]
 
 admin_ssh_key {
     username   = var.linux_vm_admin_username
-    public_key = var.linux_vm_admin_password  # Assuming this is a public SSH key, not a password
+    public_key = azurerm_key_vault_secret.ssh_public_key.value  # Assuming this is a public SSH key, not a password
 }
   
 
@@ -52,4 +51,5 @@ admin_ssh_key {
     sku       = "22_04-lts-gen2"
     version   = "latest"
   }
-}*/
+  depends_on = [ azurerm_key_vault_secret.ssh_public_key, azurerm_key_vault_secret.ssh_private_key ]
+}
