@@ -78,3 +78,4 @@ nat_rule_collection {
       translated_port     = "3389"
     }
   }
+}
