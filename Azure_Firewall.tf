@@ -72,9 +72,9 @@ nat_rule_collection {
       name                = "nat_rule_collection1_rule1"
       protocols           = ["TCP", "UDP"]
       source_addresses    = ["*"]
-      destination_address = "192.168.1.1"
+      destination_address = "172.191.135.131"
       destination_ports   = ["3389"]
-      translated_address  = "192.168.0.1"
+      translated_address  = "10.2.0.4"
       translated_port     = "3389"
     }
   }
