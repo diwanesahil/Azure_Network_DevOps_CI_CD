@@ -4,6 +4,7 @@ resource "azurerm_virtual_network" "Hub_Vnet" {
   resource_group_name = azurerm_resource_group.Network_RG.name
   location            = azurerm_resource_group.Network_RG.location
   address_space       = ["10.0.0.0/16"]
+  depends_on = [ azurerm_resource_group.Network_RG ]
 }
 
   resource "azurerm_virtual_network" "Spoke_Vnet" {

@@ -59,3 +59,22 @@ resource "azurerm_firewall_policy_rule_collection_group" "DefaultApplicationRule
   }
 }
    
+ #create NAT rule collection group
+resource "azurerm_firewall_policy_rule_collection_group" "DefaultNatRuleCollectionGroup" {
+  name               = "DefaultNatRuleCollectionGroup"
+  firewall_policy_id = azurerm_firewall_policy.Azure_Firewall_Policy.id
+  priority           = 200  
+nat_rule_collection {
+    name     = "nat_rule_collection1"
+    priority = 300
+    action   = "Dnat"
+    rule {
+      name                = "nat_rule_collection1_rule1"
+      protocols           = ["TCP", "UDP"]
+      source_addresses    = ["*"]
+      destination_address = "192.168.1.1"
+      destination_ports   = ["3389"]
+      translated_address  = "192.168.0.1"
+      translated_port     = "3389"
+    }
+  }
