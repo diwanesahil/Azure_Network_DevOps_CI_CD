@@ -34,8 +34,8 @@ resource "azurerm_firewall_policy" "Azure_Firewall_Policy" {
    }
 
 
-resource "azurerm_firewall_policy_rule_collection_group" "example" {
-  name               = "example-fwpolicy-rcg"
+resource "azurerm_firewall_policy_rule_collection_group" "DefaultApplicationRuleCollectionGroup" {
+  name               = "DefaultApplicationRuleCollectionGroup"
   firewall_policy_id = azurerm_firewall_policy.Azure_Firewall_Policy.id
   priority           = 100
   
@@ -44,7 +44,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "example" {
     priority = 500
     action   = "Deny"
     rule {
-      name = "app_rule_collection1_rule1"
+      name = "Deny_microsoft"
       protocols {
         type = "Http"
         port = 80
