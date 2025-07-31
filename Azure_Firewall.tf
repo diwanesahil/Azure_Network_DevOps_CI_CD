@@ -32,4 +32,6 @@ resource "azurerm_firewall_policy" "Azure_Firewall_Policy" {
     resource_group_name = azurerm_resource_group.Network_RG.name
 
    }
+
+
    
