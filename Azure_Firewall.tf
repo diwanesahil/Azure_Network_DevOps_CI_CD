@@ -53,7 +53,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "DefaultApplicationRule
         type = "Https"
         port = 443
       }
-      source_addresses  = azurerm_network_interface.windowsVMNIC.ip_configuration[0].private_ip_address
+      source_addresses  = [azurerm_network_interface.windowsVMNIC.ip_configuration[0].private_ip_address]
       destination_fqdns = ["*.microsoft.com"]
     }
   }
