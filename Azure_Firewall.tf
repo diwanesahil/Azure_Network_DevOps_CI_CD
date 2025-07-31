@@ -34,4 +34,28 @@ resource "azurerm_firewall_policy" "Azure_Firewall_Policy" {
    }
 
 
+resource "azurerm_firewall_policy_rule_collection_group" "example" {
+  name               = "example-fwpolicy-rcg"
+  firewall_policy_id = azurerm_firewall_policy.Azure_Firewall_Policy.id
+  priority           = 100
+  
+  application_rule_collection {
+    name     = "app_rule_collection1"
+    priority = 500
+    action   = "Deny"
+    rule {
+      name = "app_rule_collection1_rule1"
+      protocols {
+        type = "Http"
+        port = 80
+      }
+      protocols {
+        type = "Https"
+        port = 443
+      }
+      source_addresses  = ["10.2.0.4"]
+      destination_fqdns = ["*.microsoft.com"]
+    }
+  }
+}
    
