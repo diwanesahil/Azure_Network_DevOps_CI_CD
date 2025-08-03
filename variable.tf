@@ -133,3 +133,13 @@ variable "vm_admin_password" {
   sensitive   = true
   
 }
+variable "app_gateway_name" {
+  description = "The name of the Application Gateway."
+  type        = string
+  
+}
+variable "app_gateway_public_ip_name" {
+  description = "The name of the Public IP for the Application Gateway."
+  type        = string
+  
+}

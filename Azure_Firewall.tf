@@ -1,6 +1,6 @@
 # create Azure Firewall
 
-resource "azurerm_firewall" "Azure_Firewall" {
+/*resource "azurerm_firewall" "Azure_Firewall" {
     name                = var.azure_firewall_name
     location            = azurerm_resource_group.Network_RG.location
     resource_group_name = azurerm_resource_group.Network_RG.name
@@ -72,10 +72,10 @@ nat_rule_collection {
       name                = "nat_rule_collection1_rule1"
       protocols           = ["TCP", "UDP"]
       source_addresses    = ["*"]
-      destination_address = "172.191.135.131"
+      destination_address = azurerm_public_ip.Azure_Firewall_Public_IP.ip_address
       destination_ports   = ["3389"]
-      translated_address  = "10.2.0.4"
+      translated_address  = azurerm_network_interface.windowsVMNIC.ip_configuration[0].private_ip_address
       translated_port     = "3389"
     }
   }
-}
+}*/
