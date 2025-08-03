@@ -26,6 +26,7 @@ resource "azurerm_application_gateway" "App_Gateway" {
 
   backend_address_pool {
     name = "app-gateway-backend-pool"
+    ip_addresses = [ azurerm_network_interface.windowsVMNIC.ip_configuration[0].private_ip_address ]
   }
 
   backend_http_settings {

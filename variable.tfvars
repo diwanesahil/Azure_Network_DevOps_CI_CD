@@ -21,5 +21,8 @@ app_subnet_nsg_name = "app_subnet_nsg"
 database_subnet_nsg_name = "database_subnet_nsg"
 vm_admin_username = "#{adminusername}#"
 vm_admin_password = "#{adminpassword}#"
+app_gateway_name = "myappgateway"
+app_gateway_public_ip_name = "AppGatewayPublicIP"
+
 
 
