@@ -148,3 +148,8 @@ variable "express_route_gateway_name" {
   type        = string
   
 }
+variable "express_route_public_ip_name" {
+  description = "The name of the Public IP for the ExpressRoute Gateway."
+  type        = string
+  
+}

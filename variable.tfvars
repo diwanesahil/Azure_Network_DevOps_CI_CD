@@ -24,6 +24,7 @@ vm_admin_password = "#{adminpassword}#"
 app_gateway_name = "myappgateway"
 app_gateway_public_ip_name = "AppGatewayPublicIP"
 express_route_gateway_name = "myexpressgateway"
+express_route_public_ip_name = "ExpressRoutePublicIP"
 
 
 
