@@ -1,5 +1,5 @@
 # create Application Gateway
-resource "azurerm_application_gateway" "App_Gateway" {
+/*resource "azurerm_application_gateway" "App_Gateway" {
   name                = var.app_gateway_name
   location            = azurerm_resource_group.Network_RG.location
   resource_group_name = azurerm_resource_group.Network_RG.name
@@ -51,4 +51,4 @@ resource "azurerm_application_gateway" "App_Gateway" {
     backend_http_settings_name = "app-gateway-backend-http-settings"
     priority = 100
   }
-}
+}*/
