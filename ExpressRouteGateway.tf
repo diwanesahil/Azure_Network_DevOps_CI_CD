@@ -9,7 +9,7 @@
 
 }*/
 
-resource "azurerm_virtual_network_gateway" "ExpressRoute_Gateway" {
+/*resource "azurerm_virtual_network_gateway" "ExpressRoute_Gateway" {
   name                = var.express_route_gateway_name
   location            = azurerm_resource_group.Network_RG.location
   resource_group_name = azurerm_resource_group.Network_RG.name
@@ -32,4 +32,4 @@ resource "azurerm_public_ip" "ExpressRoute_Public_IP" {
   resource_group_name = azurerm_resource_group.Network_RG.name
   allocation_method   = "Static"
   sku                 = "Standard"
-}
+}*/
