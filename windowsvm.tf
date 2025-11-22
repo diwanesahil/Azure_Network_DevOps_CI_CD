@@ -1,4 +1,4 @@
-/*resource "azurerm_network_interface" "windowsVMNIC" {
+resource "azurerm_network_interface" "windowsVMNIC" {
   name                = "WindowsVMNIC"
   location            = azurerm_resource_group.Network_RG.location
   resource_group_name = azurerm_resource_group.Network_RG.name
@@ -36,7 +36,7 @@ resource "azurerm_windows_virtual_machine" "windowsVM" {
     sku       = "2019-Datacenter"
     version   = "latest"
   }
-}*/
+}
 
 /*resource "azurerm_network_security_group" "WindowsVMNSG" {
   name                = "WindowsVMNSG"
