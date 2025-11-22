@@ -153,3 +153,8 @@ variable "express_route_public_ip_name" {
   type        = string
   
 }
+variable "bastion_host_name" {
+  description = "The name of the Azure Bastion."
+  type        = string
+  
+}
