@@ -1,5 +1,5 @@
 # Create Bastion Host
-resource "azurerm_bastion_host" "BastionHost" {
+/*resource "azurerm_bastion_host" "BastionHost" {
   name                = var.bastion_host_name
   location            = azurerm_resource_group.Network_RG.location
   resource_group_name = azurerm_resource_group.Network_RG.name
@@ -18,4 +18,4 @@ resource "azurerm_public_ip" "Bastion_Public_IP" {
   resource_group_name = azurerm_resource_group.Network_RG.name
   allocation_method   = "Static"
   sku                 = "Standard"
-}
+}*/
