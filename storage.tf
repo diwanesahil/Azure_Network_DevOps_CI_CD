@@ -25,6 +25,10 @@ resource "azurerm_private_endpoint" "StorageAccount_Private_Endpoint" {
     subresource_names              = ["blob"]
         
   }
+  private_dns_zone_group {
+    name = "StorageAccountDNSZoneGroup"
+    private_dns_zone_ids = [azurerm_private_dns_zone.StorageAccount_Private_DNS.id]
+  } 
  
   }
 
@@ -34,13 +38,7 @@ resource "azurerm_private_dns_zone" "StorageAccount_Private_DNS" {
   resource_group_name = azurerm_resource_group.Network_RG.name
 }
 
-# Create Private DNS Zone Group
-resource "azurerm_private_dns_zone_group" "StorageAccount_DNS_Zone_Group" {
-  name                 = "StorageAccountDNSZoneGroup"
-    private_dns_zone_ids = [
-    azurerm_private_dns_zone.StorageAccount_Private_DNS.id,
-  ]
-}
+
 
 # Create Private DNS Zone Virtual Network Link
 resource "azurerm_private_dns_zone_virtual_network_link" "StorageAccount_DNS_VNet_Link" {
