@@ -1,6 +1,6 @@
 # Create Storage Account
 resource "azurerm_storage_account" "StorageAccount" {
-  name                     = windowsvmstorage215487
+  name                     = "windowsvmstorage215487"
   resource_group_name      = azurerm_resource_group.Network_RG.name
   location                 = azurerm_resource_group.Network_RG.location
   account_tier             = "Standard"
